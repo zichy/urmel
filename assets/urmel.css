@@ -216,10 +216,6 @@ input.button {
 	margin-block-end: 0;
 }
 
-.box .text {
-	text-wrap: balance;
-}
-
 .box-footer {
 	display: flex;
 	column-gap: 1.5rem;
