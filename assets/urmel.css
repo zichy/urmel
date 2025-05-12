@@ -1,0 +1,263 @@
+:root {
+	--width: 800px;
+	--spacer: 2rem;
+
+	--bg: hsl(50, 9%, 87%);
+	--box: hsl(0 0% 100%);
+	--draft: hsl(0 0% 100% / 0.5);
+	--text: hsl(0, 0%, 0%);
+	--accent-dark: hsl(249, 87%, 50%);
+	--accent-light: hsl(240, 100%, 90%);
+	--select: hsl(50, 100%, 80%);
+	--meta: hsl(0, 0%, 33%);
+}
+
+@media (min-width: 769px) {
+	:root {
+		--spacer: 2.5rem;
+	}
+}
+
+* {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+::selection {
+	background-color: var(--select);
+}
+
+:focus-visible {
+	outline: 2px solid var(--accent-dark);
+	outline-offset: 2px;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--text);
+	font: clamp(1.4rem, 2vw, 1.6rem)/1.5 ui-monospace, monospace;
+	display: grid;
+	align-content: start;
+	row-gap: var(--spacer);
+	max-width: var(--width);
+	min-width: 375px;
+	padding: var(--spacer);
+	margin: 0 auto;
+}
+
+main {
+	display: grid;
+	row-gap: var(--spacer);
+}
+
+a {
+	color: var(--accent-dark);
+	text-decoration-color: currentColor;
+	text-decoration-thickness: 0.1em;
+	text-underline-offset: 2px;
+}
+
+a:hover {
+	color: var(--text);
+}
+
+h1, :is(.header, .box-footer, blockquote) p {
+	margin-block: 0;
+}
+
+h1 {
+	color: var(--accent-dark);
+	font-size: 1.5em;
+	line-height: 1;
+}
+
+h1 a {
+	text-decoration: none;
+}
+
+blockquote {
+	font-style: italic;
+	padding-inline-start: 2ch;
+	margin-inline: 0;
+	border-left: 2px solid var(--bg);
+}
+
+code {
+	background-color: var(--bg);
+	font-style: italic;
+	padding-inline: 0.5ch;
+	border-radius: 0.5rem;
+}
+
+label {
+	display: block;
+	padding-block-end: 0.25rem;
+}
+
+textarea {
+	all: unset;
+	display: block;
+	width: -moz-available;
+	width: -webkit-fill-available;
+	padding: 2rem var(--spacer);
+	white-space-collapse: preserve;
+	field-sizing: content;
+}
+
+textarea:focus-visible {
+	outline: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+nav {
+	justify-content: center;
+}
+
+.header {
+	display: flex;
+	align-items: end;
+	justify-content: space-between;
+}
+
+.button {
+	color: var(--accent-dark);
+	font: 0.8em sans-serif;
+	text-decoration: none;
+	line-height: 1.5;
+	display: inline-flex;
+	column-gap: 1ch;
+	padding: 0.325rem 1ch;
+	border: 0;
+	border-radius: 0.5rem;
+}
+
+.button:focus-visible {
+	outline-color: var(--accent-dark);
+	outline-offset: 0;
+}
+
+.button:not(input) {
+	background-color: var(--accent-light);
+	outline: 2px solid var(--box);
+}
+
+.button:not(input):hover {
+	background-color: var(--accent-dark);
+	color: var(--box);
+}
+
+input.button {
+	background-color: var(--box);
+	border: 2px solid var(--box);
+}
+
+.box input.button {
+	border-color: var(--accent-dark);
+	outline-offset: 2px;
+}
+
+.field {
+	margin: -2rem calc(var(--spacer) * -1);
+}
+
+.meta {
+	font-size: 0.8em;
+	color: var(--meta);
+}
+
+.box {
+	background-color: var(--box);
+	display: grid;
+	row-gap: 2rem;
+	padding: 2rem var(--spacer) 0;
+}
+
+@media (max-width: 768px) {
+	.box {
+		margin-inline: calc(var(--spacer) * -1);
+	}
+}
+
+@media (min-width: 769px) {
+	.box {
+		border-radius: 0.5rem;
+	}
+}
+
+.box:has(textarea:focus-visible) {
+	outline: 2px solid var(--accent-dark);
+}
+
+.draft {
+	background-color: var(--draft);
+	outline: 2px dashed var(--box);
+	outline-offset: -2px;
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	column-gap: 1rem;
+}
+
+.text > *:first-child {
+	margin-block-start: 0;
+}
+
+.text > *:last-child {
+	margin-block-end: 0;
+}
+
+.box .text {
+	text-wrap: balance;
+}
+
+.box-footer {
+	display: flex;
+	column-gap: 1.5rem;
+	align-items: center;
+	justify-content: end;
+	padding: 1rem var(--spacer);
+	margin-inline: calc(var(--spacer) * -1);
+	border-top: 2px solid var(--bg);
+}
+
+.draft .box-footer {
+	border-top-color: var(--box);
+	border-top-style: dashed;
+}
+
+.box-footer .meta {
+	flex-grow: 1;
+}
+
+.permalink {
+	color: currentColor;
+	text-decoration: none;
+	position: relative;
+}
+
+.permalink:any-link:hover {
+	color: currentColor;
+	text-decoration: underline;
+}
+
+.permalink:any-link::before {
+	content: '';
+	position: absolute;
+	inset: -0.425rem -1rem;
+}
+
+.footer {
+	display: grid;
+	justify-items: center;
+	row-gap: 2rem;
+}

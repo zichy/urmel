@@ -1,0 +1,12 @@
+{
+	"USERNAME": "admin",
+	"PASSWORD": "changeme",
+	"TITLE": "urmel",
+	"DESCRIPTION": "My new microblog",
+	"LANGUAGE:": "en",
+	"EMOJI": "🌱",
+	"DATEFORMAT": "d M Y, H:i",
+	"FOOTERTEXT": "This is the end. <a href=\"#\">Privacy Policy</a>",
+	"POSTS_PER_PAGE": "10",
+	"POSTS_PER_FEED": "15"
+}
