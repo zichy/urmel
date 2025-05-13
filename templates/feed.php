@@ -14,12 +14,13 @@
 <?php foreach ($posts as $postItem) {
 	$id = $post->id($postItem);
 	$url = "{$home}{$self}?p={$id}";
-	$text = $post->get($id, 'text');
-	$title = strlen($text) > 60 ? substr($text, 0, 60)."…" : $text; ?>
+	$text = $post->parse($post->get($id, 'text'));
+	$titleText = strip_tags($text);
+	$title = strlen($titleText) > 60 ? substr($titleText, 0, 60)."…" : $titleText; ?>
 <entry>
 	<title><?= $title ?></title>
 	<link href="<?= $url ?>" />
-	<content type="html"><![CDATA[<?= $post->parse($text) ?>]]></content>
+	<content type="html"><![CDATA[<?= $text ?>]]></content>
 	<updated><?= date($dateFormat, $id) ?></updated>
 	<id><?= $home.'/?p='.$id ?></id>
 </entry>
