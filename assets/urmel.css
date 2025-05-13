@@ -118,7 +118,7 @@ button {
 }
 
 nav {
-	justify-content: center;
+	justify-content: end;
 }
 
 .header {
@@ -231,7 +231,7 @@ input.button {
 	border-top-style: dashed;
 }
 
-.box-footer .meta {
+:is(nav .row, .box-footer .meta) {
 	flex-grow: 1;
 }
 

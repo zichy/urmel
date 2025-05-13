@@ -163,10 +163,8 @@ if (isset($_GET['login'])) {
 		}
 
 		// Pagination
-		if (!($totalCount <= $postCount) && !isset($_GET['p']) && !isset($_GET['q'])) {
-			$queryURI = isset($_GET['q']) ? '&amp;q='.@urlencode($_GET['q']) : '';
-			include('templates/pagination.php');
-		}
+		$queryURI = isset($_GET['q']) ? '&amp;q='.@urlencode($_GET['q']) : '';
+		include('templates/navigation.php');
 	}
 }
 
