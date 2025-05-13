@@ -24,7 +24,7 @@
 
 ## Requirements
 
-- Web server with PHP
+- PHP >= 8.3.0
 - SSL/TLS certificate
 
 ## Installation
