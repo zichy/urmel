@@ -60,7 +60,7 @@
 		}
 	}
 
-	public function list(int $count, int $skip, $hideDrafts = true) {
+	public function list(int $count, int $skip, $drafts = false) {
 		$files = new DirectoryIterator($this->dir);
 		$list = array();
 
@@ -69,7 +69,7 @@
 				$name = $file->getFilename();
 
 				if (str_ends_with($name, '.json')) {
-					if ($hideDrafts) {
+					if (!$drafts) {
 						$id = $this->id($name);
 						$isDraft = $this->get($id, 'draft');
 						if (!$isDraft) $list[] = $name;
