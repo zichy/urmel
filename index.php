@@ -81,7 +81,7 @@ if ($account->loggedin()) {
 // Get posts
 $postCount = isset($_GET['feed']) ? constant('POSTS_PER_FEED') : constant('POSTS_PER_PAGE');
 $skipCount = isset($_GET['skip']) ? $_GET['skip'] : 0;
-$posts = !$account->loggedin() || isset($_GET['feed']) ? $post->list($postCount, $skipCount) : $post->list($postCount, $skipCount, true);
+$posts = $post->list($postCount, $skipCount, (!$account->loggedin() || isset($_GET['feed']) ? '' : 'true'));
 $totalCount = $post->totalCount(!$account->loggedin() || isset($_GET['feed']) ? '' : 'true');
 
 // Single post
