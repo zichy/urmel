@@ -33,21 +33,6 @@
 		return $id;
 	}
 
-	public function totalCount() {
-		$files = new DirectoryIterator($this->dir);
-		$count = 0;
-
-		foreach ($files as $file) {
-			if ($file->isFile()) {
-				$name = $file->getFilename();
-
-				if (str_ends_with($file, '.json')) $count++;
-			}
-		}
-
-		return $count;
-	}
-
 	public function exists($id) {
 		return file_exists("{$this->dir}{$id}.json");
 	}
@@ -84,6 +69,29 @@
 		$list = array_reverse($list);
 		$list = @array_slice($list, $skip, $count);
 		return $list;
+	}
+
+	public function totalCount($drafts = false) {
+		$files = new DirectoryIterator($this->dir);
+		$count = 0;
+
+		foreach ($files as $file) {
+			if ($file->isFile()) {
+				$name = $file->getFilename();
+
+				if (str_ends_with($file, '.json')) {
+					if (!$drafts) {
+						$id = $this->id($name);
+						$isDraft = $this->get($id, 'draft');
+						if (!$isDraft) $count++;
+					} else {
+						$count++;
+					}
+				}
+			}
+		}
+
+		return $count;
 	}
 
 	public function search($posts, $queries) {
