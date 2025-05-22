@@ -124,6 +124,7 @@ nav {
 
 .header {
 	display: flex;
+	column-gap: 2rem;
 	align-items: end;
 	justify-content: space-between;
 }
