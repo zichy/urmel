@@ -40,7 +40,7 @@ html {
 body {
 	background-color: var(--bg);
 	color: var(--text);
-	font: clamp(1.4rem, 2vw, 1.6rem)/1.5 ui-monospace, monospace;
+	font: clamp(1.4rem, 2vw, 1.6rem)/1.5 ui-sans-serif, sans-serif;
 	display: grid;
 	align-content: start;
 	row-gap: var(--spacer);
@@ -101,6 +101,7 @@ label {
 
 textarea {
 	all: unset;
+	font-family: ui-monospace, monospace;
 	display: block;
 	width: -moz-available;
 	width: -webkit-fill-available;
@@ -129,7 +130,7 @@ nav {
 
 .button {
 	color: var(--accent-dark);
-	font: 0.8em sans-serif;
+	font-size: 0.8em;
 	text-decoration: none;
 	line-height: 1.5;
 	display: inline-flex;
