@@ -11,5 +11,17 @@
 			mkdir($dir);
 		}
 	}
+
+	public function date(\DateTime $time, $pattern = null) {
+		$formatter = new \IntlDateFormatter(
+			constant('LANGUAGE'),
+			\IntlDateFormatter::MEDIUM,
+			\IntlDateFormatter::MEDIUM,
+			constant('TIMEZONE'));
+
+		$formatter->setPattern($pattern ? $pattern : constant('DATEFORMAT'));
+
+		return $formatter->format($time);
+	}
 }
 ?>

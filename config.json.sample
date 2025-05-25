@@ -3,9 +3,10 @@
 	"PASSWORD": "changeme",
 	"TITLE": "urmel",
 	"DESCRIPTION": "My new microblog",
-	"LANGUAGE:": "en",
+	"LANGUAGE": "en-GB",
+	"TIMEZONE": "Europe/London",
+	"DATEFORMAT": "d MMM Y, hh:mm",
 	"EMOJI": "🌱",
-	"DATEFORMAT": "d M Y, H:i",
 	"FOOTERTEXT": "This is the end. <a href=\"#\">Privacy Policy</a>",
 	"POSTS_PER_PAGE": "10",
 	"POSTS_PER_FEED": "15"

@@ -8,19 +8,25 @@ $self = ($self == '/index.php') ? '/' : $self;
 // Import classes
 require_once('classes/config.php');
 $config = new Config();
+$config->set();
+
 require_once('classes/sys.php');
 $sys = new Sys();
+
 require_once('classes/account.php');
 $account = new Account();
+
 require_once('classes/post.php');
 $post = new Post();
-require_once('classes/l10n.php');
 
-// Set config
-$config->set();
+require_once('classes/l10n.php');
 
 // Create post directory
 $sys->createDirectory($post->dir);
+
+// Date formats
+$postDateFormat = "Y-MM-dd'T'HH:mm";
+$feedDateFormat = "Y-MM-dd'T'HH:mm:ssZZZZZ";
 
 // Login & Session
 session_start();
@@ -110,8 +116,6 @@ if (isset($_GET['feed'])) {
 		$sys->goto('?feed');
 	}
 
-	$dateFormat = 'Y-m-d\TH:i:sP';
-	$lastUpdate = $post->id(reset($posts));
 	header('Content-type: text/xml');
 	include('templates/feed.php');
 	die();
@@ -136,6 +140,8 @@ if ($account->loggedin() && !isset($_GET['p']) && !isset($_GET['q'])) {
 			$sys->goto();
 		}
 		$id = $_GET['edit'];
+		$date = new DateTime();
+		$date->setTimestamp($id);
 	}
 	include('templates/panel.php');
 }
@@ -152,6 +158,8 @@ if (isset($_GET['login'])) {
 		// Posts & Drafts
 		foreach ($posts as $item) {
 			$id = $post->id($item);
+			$date = new DateTime();
+			$date->setTimestamp($id);
 			$url = "{$home}{$self}?p={$id}";
 			$text = $post->get($id, 'text');
 			$draft = $post->get($id, 'draft');

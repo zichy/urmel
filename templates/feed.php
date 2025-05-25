@@ -9,10 +9,17 @@
 <author>
 	<name><?= constant('TITLE') ?></name>
 </author>
-<updated><?= date($dateFormat, $lastUpdate) ?></updated>
+<?php
+	$latestPost = $post->id(reset($posts));
+	$latestDate = new DateTime();
+	$latestDate->setTimestamp($latestPost);
+?>
+<updated><?= $sys->date($latestDate, $feedDateFormat) ?></updated>
 <id><?= $home.$self ?>?feed</id>
 <?php foreach ($posts as $postItem) {
 	$id = $post->id($postItem);
+	$date = new DateTime();
+	$date->setTimestamp($id);
 	$url = "{$home}{$self}?p={$id}";
 	$text = $post->parse($post->get($id, 'text'));
 	$titleText = strip_tags($text);
@@ -21,7 +28,7 @@
 	<title><?= $title ?></title>
 	<link href="<?= $url ?>" />
 	<content type="html"><![CDATA[<?= $text ?>]]></content>
-	<updated><?= date($dateFormat, $id) ?></updated>
+	<updated><?= $sys->date($date, $feedDateFormat) ?></updated>
 	<id><?= $home.'/?p='.$id ?></id>
 </entry>
 <?php } ?>
