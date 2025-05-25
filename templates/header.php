@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head prefix="og: https://ogp.me/ns#">
+<!DOCTYPE html><html lang="<?= constant('LANGUAGE') ?>"><head prefix="og: https://ogp.me/ns#">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?= constant('TITLE') ?></title>
