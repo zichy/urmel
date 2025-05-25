@@ -89,6 +89,7 @@ if (isset($_GET['p'])) {
 	if (!$post->exists($_GET['p'])) {
 		die(L10n::$errorPostNotFound);
 	}
+
 	$posts = ["0" => "{$_GET['p']}.json"];
 }
 
@@ -157,7 +158,7 @@ if (isset($_GET['login'])) {
 
 			if ($draft && $account->loggedin()) {
 				include('templates/draft.php');
-			} elseif(!$draft) {
+			} elseif (!$draft) {
 				include('templates/post.php');
 			}
 		}

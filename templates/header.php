@@ -7,7 +7,7 @@
 <?php if (isset($_GET['p'])): ?>
 	<meta name="description" content="<?= $desc ?>">
 	<meta property="og:description" content="<?= $desc ?>">
-	<?php elseif (!empty(constant('DESCRIPTION'))): ?>
+<?php elseif (!empty(constant('DESCRIPTION'))): ?>
 	<meta name="description" content="<?= constant('DESCRIPTION') ?>">
 	<meta property="og:description" content="<?= constant('DESCRIPTION') ?>">
 <?php endif ?>

@@ -1,5 +1,5 @@
 <nav class="row">
-	<?php if(!($totalCount <= $postCount) && !isset($_GET['p']) && !isset($_GET['q'])): ?>
+	<?php if (!($totalCount <= $postCount) && !isset($_GET['p']) && !isset($_GET['q'])): ?>
 	<div class="row">
 		<?php if ($skipCount > 0): ?>
 			<a href="?skip=<?= (@$_GET['skip'] > 0 ? $skipCount - constant('POSTS_PER_PAGE') : 0).$queryURI ?>" class="button">
