@@ -8,6 +8,7 @@
 - [Text formatting](#text-formatting)
 - Atom feed
 - Open Graph, Microdata
+- Zero dependencies
 
 ## Missing features
 
