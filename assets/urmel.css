@@ -4,6 +4,7 @@
 
 	--bg: hsl(50, 9%, 87%);
 	--box: hsl(0 0% 100%);
+	--transparent: hsl(0 0% 100% / 0);
 	--draft: hsl(0 0% 100% / 0.5);
 	--text: hsl(0, 0%, 0%);
 	--accent-dark: hsl(249, 87%, 50%);
@@ -102,10 +103,18 @@ label {
 
 textarea {
 	all: unset;
+	background: linear-gradient(var(--box) 30%, var(--transparent)) center top,
+		linear-gradient(var(--transparent), var(--box) 70%) center bottom,
+		radial-gradient(farthest-side at 50% 0, hsl(0 0% 0% / 0.25), hsl(0 0% 0% / 0)) center top,
+		radial-gradient(farthest-side at 50% 100%, hsl(0 0% 0% / 0.25), hsl(0 0% 0% / 0)) center bottom;
+	background-repeat: no-repeat;
+	background-size: 100% 4rem, 100% 4rem, 100% 1.5rem, 100% 1.5rem;
+	background-attachment: local, local, scroll, scroll;
 	font-family: ui-monospace, monospace;
 	display: block;
 	width: -moz-available;
 	width: -webkit-fill-available;
+	max-height: 50rem;
 	padding: 2rem var(--spacer);
 	white-space-collapse: preserve;
 	field-sizing: content;
