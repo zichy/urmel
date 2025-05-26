@@ -58,6 +58,7 @@ main {
 a {
 	color: var(--accent-dark);
 	text-decoration-color: currentColor;
+	text-decoration-style: wavy;
 	text-decoration-thickness: 0.1em;
 	text-underline-offset: 2px;
 }
