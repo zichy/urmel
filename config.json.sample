@@ -5,7 +5,7 @@
 	"DESCRIPTION": "My new microblog",
 	"LANGUAGE": "en-GB",
 	"TIMEZONE": "Europe/London",
-	"DATEFORMAT": "d MMM Y, hh:mm",
+	"DATEFORMAT": "d MMM Y, HH:mm",
 	"EMOJI": "🌱",
 	"FOOTERTEXT": "This is the end. <a href=\"#\">Privacy Policy</a>",
 	"POSTS_PER_PAGE": "10",
