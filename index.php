@@ -1,7 +1,15 @@
 <?php
 
+// Language strings
+require_once('classes/l10n.php');
+
 // Config
-$config = require_once('config.php');
+$configFile = 'config.php';
+if (file_exists($configFile)) {
+	$config = require_once($configFile);
+} else {
+	die(L10n::$errorConfigMissing);
+}
 
 // URIs
 $home = "https://{$_SERVER['HTTP_HOST']}";
@@ -17,8 +25,6 @@ $account = new Account();
 
 require_once('classes/post.php');
 $post = new Post();
-
-require_once('classes/l10n.php');
 
 // Create post directory
 $sys->createDirectory($post->dir);
