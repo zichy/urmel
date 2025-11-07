@@ -22,12 +22,16 @@
 		<?php endif?>
 
 		<div class="row">
-			<button class="button" type="submit" name="save-post"><?= L10n::$publish ?></button>
-			<button class="button" type="submit" name="save-draft"><?= L10n::$saveDraft ?></button>
+			<input type="hidden" name="id" value="<?= (isset($_GET['edit']) ? $id : '') ?>">
 
-			<?php if (isset($_GET['edit'])): ?>
+			<?php if (!isset($_GET['edit'])): ?>
+				<button class="button" type="submit" name="logout" formnovalidate><?= L10n::$logout ?></button>
+			<?php else: ?>
 				<button class="button delete" type="submit" name="delete-post" data-warning="<?= L10n::$deleteWarning ?>"><?= L10n::$delete ?></button>
-			<?php endif?>
+			<?php endif ?>
+
+			<button class="button" type="submit" name="save-draft"><?= L10n::$saveDraft ?></button>
+			<button class="button" type="submit" name="save-post"><?= L10n::$publish ?></button>
 		</div>
 	</div>
 </form>

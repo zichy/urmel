@@ -267,7 +267,5 @@ input.button {
 }
 
 .footer {
-	display: grid;
-	justify-items: center;
-	row-gap: 2rem;
+	text-align: center;
 }
