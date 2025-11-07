@@ -17,6 +17,7 @@
 - Comments, webmentions
 - ActivityPub
 - Composer package
+- Database
 
 ## Target audiences
 
