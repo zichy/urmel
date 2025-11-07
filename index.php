@@ -1,15 +1,14 @@
 <?php
 
+// Config
+$config = require_once('config.php');
+
 // URIs
 $home = "https://{$_SERVER['HTTP_HOST']}";
 $self = $_SERVER['PHP_SELF'];
 $self = ($self == '/index.php') ? '/' : $self;
 
 // Import classes
-require_once('classes/config.php');
-$config = new Config();
-$config->set();
-
 require_once('classes/sys.php');
 $sys = new Sys();
 
@@ -85,7 +84,7 @@ if ($account->loggedin()) {
 }
 
 // Get posts
-$postCount = isset($_GET['feed']) ? constant('POSTS_PER_FEED') : constant('POSTS_PER_PAGE');
+$postCount = isset($_GET['feed']) ? $config['postsPerFeed'] : $config['postsPerPage'];
 $skipCount = isset($_GET['skip']) ? $_GET['skip'] : 0;
 $posts = $post->list($postCount, $skipCount, (!$account->loggedin() || isset($_GET['feed']) ? '' : 'true'));
 $totalCount = $post->totalCount(!$account->loggedin() || isset($_GET['feed']) ? '' : 'true');

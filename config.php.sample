@@ -1,0 +1,13 @@
+<?php return array(
+	'username' => 'admin',
+	'password' => 'admin',
+	'title' => 'urmel',
+	'description' => 'My new microblog',
+	'language' => 'en-GB',
+	'timezone' => 'Europe/London',
+	'dateformat' => 'd MMM Y, HH:mm',
+	'emoji' => '🌱',
+	'footerText' => 'This is the end. <a href=\"#\">Privacy Policy</a>',
+	'postsPerPage' => '10',
+	'postsPerFeed' => '15',
+); ?>

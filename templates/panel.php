@@ -9,7 +9,7 @@
 		<?php if (isset($_GET['edit'])): ?>
 			<p class="meta row">
 				<?php
-					$time = '<time datetime="'.$sys->date($date, $postDateFormat).'">'.$sys->date($date, constant('DATEFORMAT')).'</time>';
+					$time = '<time datetime="'.$sys->date($date, $postDateFormat).'">'.$sys->date($date, $config['dateformat']).'</time>';
 					if (isset($_GET['p'])) {
 						echo $time;
 					} else { ?>

@@ -3,8 +3,10 @@
 	private $cookie = '_cookie';
 
 	public function login($username, $password) {
-		if (hash_equals(constant('USERNAME'), $username) &&
-			hash_equals(constant('PASSWORD'), $password)) {
+		$config = include('config.php');
+
+		if (hash_equals($config['username'], $username) &&
+			hash_equals($config['password'], $password)) {
 			$_SESSION['urmel'] = true;
 			$this->createCookie();
 		} else {

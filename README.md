@@ -30,7 +30,7 @@
 
 ## Installation
 
-1. Update `config.json.sample` and rename it to `config.json`.
+1. Update `config.php.sample` and rename it to `config.php`.
     - Optionally, you can translate all text strings in `classes/l10n.php`.
 2. Upload everything to a web server. (Yes, this is old-school.)
 3. Use your credentials at `?login` to access the editor panel.

@@ -2,7 +2,7 @@
 
 <footer class="footer">
 	<div class="text">
-		<p class="meta"><?= constant('FOOTERTEXT') ?>
+		<p class="meta"><?= $config['footerText'] ?>
 	</div>
 
 	<?php if ($account->loggedin()): ?>

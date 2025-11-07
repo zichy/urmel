@@ -13,13 +13,15 @@
 	}
 
 	public function date(\DateTime $time, $pattern = null) {
-		$formatter = new \IntlDateFormatter(
-			constant('LANGUAGE'),
-			\IntlDateFormatter::MEDIUM,
-			\IntlDateFormatter::MEDIUM,
-			constant('TIMEZONE'));
+		$config = include('config.php');
 
-		$formatter->setPattern($pattern ? $pattern : constant('DATEFORMAT'));
+		$formatter = new \IntlDateFormatter(
+			$config['language'],
+			\IntlDateFormatter::MEDIUM,
+			\IntlDateFormatter::MEDIUM,
+			$config['timezone']);
+
+		$formatter->setPattern($pattern ? $pattern : $config['dateformat']);
 
 		return $formatter->format($time);
 	}

@@ -5,7 +5,7 @@
 			<?php if (!isset($_GET['p'])): ?>
 				<a itemprop="url" class="permalink" href="?p=<?= $id ?>" title="<?= L10n::$permalink ?>">
 			<?php endif ?>
-			<time itemprop="datePublished" datetime="<?= $sys->date($date, $postDateFormat) ?>"><?= $sys->date($date, constant('DATEFORMAT')) ?></time>
+			<time itemprop="datePublished" datetime="<?= $sys->date($date, $postDateFormat) ?>"><?= $sys->date($date, $config['dateformat']) ?></time>
 			<?php if (!isset($_GET['p'])): ?></a><?php endif ?>
 			<strong><?= L10n::$draft ?></strong>
 		</p>

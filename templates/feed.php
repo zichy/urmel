@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-<title><?= constant('TITLE') ?></title>
-<?php if (!empty(constant('DESCRIPTION'))): ?>
-<subtitle><?= constant('DESCRIPTION') ?></subtitle>
+<title><?= $config['title'] ?></title>
+<?php if (!empty($config['description'])): ?>
+<subtitle><?= $config['description'] ?></subtitle>
 <?php endif ?>
 <link href="<?= $home ?>" />
 <link href="<?= $home.$self ?>?feed" rel="self"/>
 <author>
-	<name><?= constant('TITLE') ?></name>
+	<name><?= $config['title'] ?></name>
 </author>
 <?php
 	$latestPost = $post->id(reset($posts));
