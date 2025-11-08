@@ -19,7 +19,6 @@
 	static $older = 'Older';
 	static $errorLogin = 'Incorrect credentials.';
 	static $errorConfigMissing = 'Config file not found.';
-	static $errorConfigInvalid = 'Config file is invalid.';
 	static $errorNoResults = 'No posts were found.';
 	static $errorPostNotFound = 'This post does not exist.';
 	static $errorPostEmpty = 'Your post must contain text.';
