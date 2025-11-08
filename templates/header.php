@@ -33,7 +33,7 @@
 	</div>
 
 	<form class="search" action="<?= $self ?>" method="get" role="search">
-		<input class="button" type="search" name="q" aria-label="<?= L10n::$search ?>" placeholder="<?= L10n::$search ?>" value="<?= isset($_GET['q']) ? $_GET['q'] : '' ?>" required>
+		<input class="input" type="search" name="q" aria-label="<?= L10n::$search ?>" placeholder="<?= L10n::$search ?>" value="<?= isset($_GET['q']) ? $_GET['q'] : '' ?>" required>
 	</form>
 </header>
 

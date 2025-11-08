@@ -1,6 +1,9 @@
 <article class="box" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting" itemid="<?= $url ?>">
-	<div itemprop="articleBody" class="text"><?= $post->parse($text) ?></div>
-	<footer class="box-footer">
+	<div class="block" data-block="text">
+		<div itemprop="articleBody" class="text"><?= $post->parse($text) ?></div>
+	</div>
+
+	<footer class="block" data-block="footer">
 		<p class="meta">
 			<?php if (!isset($_GET['p'])): ?>
 				<a itemprop="url" class="permalink" href="?p=<?= $id ?>" title="<?= L10n::$permalink ?>">

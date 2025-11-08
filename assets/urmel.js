@@ -2,7 +2,7 @@ if (window.history.replaceState) {
 	window.history.replaceState(null, null, window.location.href);
 }
 
-const $panel = document.querySelector('.panel');
+const $panel = document.querySelector('[data-box="panel"]');
 const $button = $panel.querySelector('.delete');
 if ($panel && $button) {
 	const warning = $button.dataset.warning;
