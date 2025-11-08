@@ -247,6 +247,11 @@ input.button {
 	margin-inline: calc(var(--spacer) * -1);
 }
 
+[data-box="draft"] {
+	outline: 2px dashed var(--box);
+	outline-offset: -2px;
+}
+
 [data-box="draft"] .block {
 	background-color: var(--draft);
 }
@@ -265,11 +270,6 @@ input.button {
 	column-gap: 1.5rem;
 	align-items: center;
 	justify-content: space-between;
-}
-
-[data-block="draft"] {
-	outline: 2px dashed var(--box);
-	outline-offset: -2px;
 }
 
 .row {
