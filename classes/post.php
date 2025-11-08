@@ -119,7 +119,7 @@
 		$t = preg_replace('/(\_)(.*?)\1/', '<em>\2</em>', $t);
 		$t = preg_replace('/\~\~(.*?)\~\~/', '<del>\1</del>', $t);
 		$t = preg_replace('/\@(.*?)\@/', '<code>\1</code>', $t);
-		$t = preg_replace('/\[([^\[]+)\]\(([^\)]+)\)/', '<a href=\'\2\' rel=\'external\' target=\'_blank\'>\1</a>', $t);
+		$t = preg_replace('/\[([^\[]+)\]\(([^\)]+)\)/', '<a href=\'\2\' rel=\'external\'>\1</a>', $t);
 		$t = preg_replace('/\[(.*?)\]/', '<a href=\'\1\' rel=\'external\'>\1</a>', $t);
 		$t = '<p>'.$t.'</p>';
 		$t = str_replace("\r\n\r\n", "</p><p>", $t);
