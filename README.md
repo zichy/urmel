@@ -42,8 +42,8 @@ There is some [Markdown](https://daringfireball.net/projects/markdown/)-inspired
 
 | Input                          | Output                                          |
 | ---                            | ---                                             |
-| `**strong**` / `__strong__`    | __strong__                                      |
-| `*italic*` / `_italic_`        | _italic_                                        |
+| `**strong**`                   | **strong**                                      |
+| `_italic_`                     | _italic_                                        |
 | `~~strikethrough~~`            | ~~strikethrough~~                               |
 | `>quotation block`             | <blockquote><p>quotation block</p></blockquote> |
 | `@code@`                       | `code`                                          |

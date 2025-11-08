@@ -115,8 +115,8 @@
 	}
 
 	public function parse($t) {
-		$t = preg_replace('/(\*\*|__)(.*?)\1/', '<strong>\2</strong>', $t);
-		$t = preg_replace('/(\*|_)(.*?)\1/', '<em>\2</em>', $t);
+		$t = preg_replace('/(\*\*)(.*?)\1/', '<strong>\2</strong>', $t);
+		$t = preg_replace('/(\_)(.*?)\1/', '<em>\2</em>', $t);
 		$t = preg_replace('/\~\~(.*?)\~\~/', '<del>\1</del>', $t);
 		$t = preg_replace('/\@(.*?)\@/', '<code>\1</code>', $t);
 		$t = preg_replace('/\[([^\[]+)\]\(([^\)]+)\)/', '<a href=\'\2\' rel=\'external\' target=\'_blank\'>\1</a>', $t);
