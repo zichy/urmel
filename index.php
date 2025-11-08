@@ -148,7 +148,10 @@ if ($account->loggedin() && !isset($_GET['p']) && !isset($_GET['q'])) {
 		$date = new DateTime();
 		$date->setTimestamp($id);
 	}
-	include('templates/panel.php');
+	
+	if (!$skipCount > 0) {
+		include('templates/panel.php');
+	}
 }
 
 if (isset($_GET['login'])) {
