@@ -7,7 +7,7 @@
 		<label for="password"><?= L10n::$password ?></label>
 		<input class="input" type="password" id="password" name="password" autocomplete="current-password" required>
 	</div>
-	<div class="block" data-footer>
+	<div class="block" data-block="footer">
 		<button class="button" type="submit" name="login"><?= L10n::$login ?></button>
 	</div>
 </form>

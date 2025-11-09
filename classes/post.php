@@ -114,6 +114,40 @@
 		return $results;
 	}
 
+	public function title($url) {
+		$options = array(
+			CURLOPT_URL => $url,
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_HEADER => true,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_ENCODING => '',
+			CURLOPT_AUTOREFERER => true,
+			CURLOPT_CONNECTTIMEOUT => 120,
+			CURLOPT_TIMEOUT => 120,
+			CURLOPT_MAXREDIRS => 10,
+		);
+
+		$ch = curl_init();
+		curl_setopt_array($ch, $options);
+
+		if (!curl_errno($ch)) {
+			$html = curl_exec($ch);
+			$dom = Dom\HTMLDocument::createFromString($html, LIBXML_NOERROR);
+			$titles = $dom->getElementsByTagName('title');
+
+			if (count($titles) > 0) {
+				$title = $titles[0]->textContent;
+				return $title;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+
+		curl_close($ch);
+	}
+
 	public function parse($t) {
 		$t = preg_replace('/(\*\*)(.*?)\1/', '<strong>\2</strong>', $t);
 		$t = preg_replace('/(\_)(.*?)\1/', '<em>\2</em>', $t);

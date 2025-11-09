@@ -1,13 +1,15 @@
 # urmel
 
-*urmel* is brutalist and flat-file microblogging software. It's the spiritual successor to [vicco](https://github.com/zichy/vicco).
+*urmel* is minimalist blog software. It can be used for microblogging, linkblogging and longer texts.
 
 ## Features
 
-- Web interface to draft, publish, edit, and delete posts
+- Interface to draft, publish, edit, and delete posts
 - [Text formatting](#text-formatting)
+- Flat-file; no database needed
+- [Simple installation](#installation)
 - Atom feed
-- Open Graph, Microdata
+- Open Graph tags & Microdata
 - Zero dependencies
 
 ## Missing features
@@ -17,7 +19,6 @@
 - Comments, webmentions
 - ActivityPub
 - Composer package
-- Database
 
 ## Target audiences
 
@@ -26,7 +27,7 @@
 
 ## Requirements
 
-- PHP >= 8.3.0
+- PHP >= 8.4.0
 - SSL/TLS certificate
 
 ## Installation
@@ -34,7 +35,9 @@
 1. Update `config.php.sample` and rename it to `config.php`.
     - Optionally, you can translate all text strings in `classes/l10n.php`.
 2. Upload everything to a web server. (Yes, this is old-school.)
-3. Use your credentials at `?login` to access the editor panel.
+3. It should work.
+
+Use your credentials at `?login` to access the editor panel.
 
 ## Text formatting
 

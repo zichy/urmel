@@ -88,6 +88,57 @@ h1 a:hover {
 	text-decoration: underline;
 }
 
+:is(h2, #title) {
+	color: var(--accent-dark);
+	font-size: 1.5em;
+	font-family: var(--font-sans);
+	font-weight: bold;
+	line-height: 1.2;
+}
+
+h2 {
+	margin-block: 0;
+}
+
+h2 a {
+	text-decoration-color: var(--accent-light);
+}
+
+h2 a:hover {
+	color: var(--accent-dark);
+	text-decoration-color: currentColor;
+}
+
+h2 a:not([rel='external']) {
+	display: block;
+}
+
+hgroup {
+	position: relative;
+}
+
+hgroup :is(h2, p) {
+	display: inline;
+}
+
+hgroup h2 a::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+}
+
+hgroup .meta {
+	color: var(--accent-dark);
+}
+
+hgroup .meta::before {
+	content: '(';
+}
+
+hgroup .meta::after {
+	content: ')';
+}
+
 blockquote {
 	font-style: italic;
 	padding-inline-start: 2ch;
@@ -120,24 +171,11 @@ textarea {
 	background-repeat: no-repeat;
 	background-size: 100% 4rem, 100% 4rem, 100% 1.5rem, 100% 1.5rem;
 	background-attachment: local, local, scroll, scroll;
-	font-family: var(--font-mono);
-	display: block;
 	width: -moz-available;
 	width: -webkit-fill-available;
 	max-height: var(--text-max-height);
-	padding: 2rem var(--spacer);
-	border-top-right-radius: 0.5rem;
-	border-top-left-radius: 0.5rem;
 	white-space-collapse: preserve;
 	field-sizing: content;
-}
-
-textarea:focus-visible {
-	outline: none;
-}
-
-button {
-	cursor: pointer;
 }
 
 nav {
@@ -155,6 +193,20 @@ nav .row {
 	justify-content: space-between;
 }
 
+.field {
+	background-color: transparent;
+	font-family: var(--font-mono);
+	font-size: 1em;
+	display: block;
+	padding: 2rem var(--spacer);
+	margin: -1rem calc(var(--spacer) * -1);
+	border: 0;
+}
+
+.field:focus-visible {
+	outline: 0;
+}
+
 :is(.input, .button) {
 	font-family: var(--font-sans);
 	font-size: 0.8em;
@@ -164,29 +216,31 @@ nav .row {
 	border-radius: 0.5rem;
 }
 
+.input {
+	max-width: 15rem;
+}
+
 .block .input {
 	background-color: var(--bg);
 }
 
 .button {
+	background-color: var(--accent-light);
 	color: var(--accent-dark);
 	font-weight: bold;
 	text-decoration: none;
 	display: inline-flex;
 	column-gap: 1ch;
+	outline: 2px solid var(--box);
+	cursor: pointer;
 }
 
 .button:focus-visible {
 	outline-color: var(--accent-dark);
-	outline-offset: 0;
+	outline-offset: 2px;
 }
 
-.button:not(input) {
-	background-color: var(--accent-light);
-	outline: 2px solid var(--box);
-}
-
-.button:not(input):hover {
+.button:hover {
 	background-color: var(--accent-dark);
 	color: var(--box);
 }
@@ -199,10 +253,6 @@ input.button {
 .box input.button {
 	border-color: var(--accent-dark);
 	outline-offset: 2px;
-}
-
-.field {
-	margin: -1rem calc(var(--spacer) * -1);
 }
 
 .meta {
@@ -237,12 +287,9 @@ input.button {
 	}
 }
 
-.box:has(textarea:focus-visible) {
-	outline: 2px solid var(--accent-dark);
-}
-
 .block {
 	background-color: var(--box);
+	display: grid;
 	padding: 1rem var(--spacer);
 	margin-inline: calc(var(--spacer) * -1);
 }
@@ -262,6 +309,8 @@ input.button {
 }
 
 [data-block="text"] {
+	display: grid;
+	row-gap: 1em;
 	padding-block: 2rem;
 }
 
@@ -296,12 +345,12 @@ input.button {
 	position: relative;
 }
 
-.permalink:any-link:hover {
+.permalink:hover {
 	color: currentColor;
 	text-decoration: underline;
 }
 
-.permalink:any-link::before {
+.permalink::after {
 	content: '';
 	position: absolute;
 	inset: -0.5rem -1rem;

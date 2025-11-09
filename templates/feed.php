@@ -4,8 +4,9 @@
 <?php if (!empty($config['description'])): ?>
 <subtitle><?= $config['description'] ?></subtitle>
 <?php endif ?>
-<link href="<?= $home ?>" />
-<link href="<?= $home.$self ?>?feed" rel="self"/>
+<link href="<?= $home ?>" type="text/html" rel="alternate"/>
+<link href="<?= $home.$self ?>?feed" type="application/atom+xml" rel="self"/>
+<id><?= $home.$self ?>?feed</id>
 <author>
 	<name><?= $config['title'] ?></name>
 </author>
@@ -15,19 +16,23 @@
 	$latestDate->setTimestamp($latestPost);
 ?>
 <updated><?= $sys->date($latestDate, $feedDateFormat) ?></updated>
-<id><?= $home.$self ?>?feed</id>
 <?php foreach ($posts as $postItem) {
 	$id = $post->id($postItem);
 	$date = new DateTime();
 	$date->setTimestamp($id);
 	$url = "{$home}{$self}?p={$id}";
-	$text = $post->parse($post->get($id, 'text'));
+	$text = $post->get($id, 'text');
+	$text = $text ? $post->parse($text) : '';
 	$titleText = strip_tags($text);
-	$title = strlen($titleText) > 60 ? substr($titleText, 0, 60)."…" : $titleText; ?>
+	$title = $post->get($id, 'title');
+	$title = $title ? $title : (strlen($titleText) > 60 ? substr($titleText, 0, 60)."…" : $titleText);
+	$via = $post->get($id, 'via');
+	$source = $via ? parse_url($via)['host'] : ''; ?>
 <entry>
 	<title><?= $title ?></title>
-	<link href="<?= $url ?>" />
-	<content type="html"><![CDATA[<?= $text ?>]]></content>
+	<?php if ($via): ?><link href="<?= $via ?>" type="text/html" rel="alternate"/><?php endif ?>
+	<link href="<?= $url ?>" type="text/html" rel="<?= $via ? 'related' : 'alternate' ?>"/>
+	<?php if ($text): ?><content type="html"><![CDATA[<?= $text ?>]]></content><?php endif ?>
 	<updated><?= $sys->date($date, $feedDateFormat) ?></updated>
 	<id><?= $home.'/?p='.$id ?></id>
 </entry>

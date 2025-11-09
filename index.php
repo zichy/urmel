@@ -51,8 +51,12 @@ if (isset($_POST['logout'])) {
 if ($account->loggedin()) {
 	// Save post
 	if (isset($_POST['save-post']) || isset($_POST['save-draft'])) {
-		if (empty($_POST['text'])) {
+		if (empty($_POST['title']) && empty($_POST['via']) && empty($_POST['text'])) {
 			die(L10n::$errorPostEmpty);
+		} elseif (empty($_POST['title']) && !empty($_POST['via'])) {
+			die(L10n::$errorPostURL);
+		} elseif (!empty($_POST['title']) && empty($_POST['via']) && empty($_POST['text'])) {
+			die(L10n::$errorPostTitleOnly);
 		}
 
 		$content = new stdClass();
@@ -72,6 +76,8 @@ if ($account->loggedin()) {
 		}
 
 		$content->draft = isset($_POST['save-draft']) ? true : false;
+		$content->title = $_POST['title'];
+		$content->via = $_POST['via'];
 		$content->text = htmlspecialchars($_POST['text']);
 		$post->set($id, $content);
 		$sys->goto();
@@ -81,6 +87,20 @@ if ($account->loggedin()) {
 	if (isset($_POST['delete-post'])) {
 		$post->delete($_POST['id']);
 		$sys->goto();
+	}
+
+	// Get external title
+	if (isset($_GET['title']) &&
+		!empty($_GET['title']) &&
+		filter_var($_GET['title'], FILTER_VALIDATE_URL)) {
+
+		$title = $post->title($_GET['title']);
+		if (!$title === false) {
+			echo $title;
+		} else {
+			return false;
+		}
+		die();
 	}
 } elseif (isset($_POST['save-post']) ||
 	isset($_POST['save-draft']) ||
@@ -169,6 +189,9 @@ if (isset($_GET['login'])) {
 			$date = new DateTime();
 			$date->setTimestamp($id);
 			$url = "{$home}{$self}?p={$id}";
+			$title = $post->get($id, 'title');
+			$via = $post->get($id, 'via');
+			$source = $via ? parse_url($via)['host'] : '';
 			$text = $post->get($id, 'text');
 			$draft = $post->get($id, 'draft');
 
