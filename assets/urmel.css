@@ -278,6 +278,10 @@ input.button {
 	column-gap: 1rem;
 }
 
+[data-row="end"] {
+	justify-content: end;
+}
+
 .text > *:first-child {
 	margin-block-start: 0;
 }
