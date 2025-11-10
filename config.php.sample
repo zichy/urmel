@@ -9,5 +9,6 @@
 	'emoji' => '🌱',
 	'footerText' => 'This is the end. <a href=\"#\">Privacy Policy</a>',
 	'postsPerPage' => '10',
-	'postsPerFeed' => '15'
+	'postsPerFeed' => '15',
+	'customCSS' => ''
 ); ?>
