@@ -26,7 +26,7 @@
 				<?php endif ?>
 			</p>
 		<?php else: ?>
-			<p class="meta">(<a class="permalink" href="https://github.com/zichy/urmel#text-formatting" rel="external" target="_blank">Text formatting</a>)
+			<p class="meta">(<a class="permalink" href="https://github.com/zichy/urmel#text-formatting" rel="external" target="_blank"><?= L10n::$textFormatting ?></a>)
 		<?php endif ?>
 
 		<div class="row">

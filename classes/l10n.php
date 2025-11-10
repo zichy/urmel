@@ -16,6 +16,7 @@
 	static $viaExternal = 'External';
 	static $textLabel = 'Comment';
 	static $textPlaceholder = 'What are your thoughts?';
+	static $textFormatting = 'Text formatting';
 	static $publish = 'Publish';
 	static $saveDraft = 'Save Draft';
 	static $delete = 'Delete';
