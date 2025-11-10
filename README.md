@@ -20,11 +20,6 @@
 - ActivityPub
 - Composer package
 
-## Target audiences
-
-- Hackers — It’s easy to customise.
-- Hipsters — It’s crappy, you could use it as a joke.
-
 ## Requirements
 
 - PHP >= 8.4.0
