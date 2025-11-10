@@ -197,6 +197,8 @@ if (isset($_GET['login'])) {
 
 			if ($draft && $account->loggedin()) {
 				include('templates/draft.php');
+			} elseif ($draft && !$account->loggedin() && isset($_GET['p'])) {
+				$sys->goto();
 			} elseif (!$draft) {
 				include('templates/post.php');
 			}
