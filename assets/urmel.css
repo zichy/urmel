@@ -193,6 +193,10 @@ nav .row {
 	justify-content: space-between;
 }
 
+.name {
+	flex-grow: 1;
+}
+
 .field {
 	background-color: transparent;
 	font-family: var(--font-mono);

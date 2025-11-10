@@ -19,7 +19,7 @@
 <body itemscope itemtype="https://schema.org/Blog">
 
 <header class="header">
-	<div>
+	<div class="name">
 		<h1 itemprop="name">
 			<?php if (!empty($_GET)): ?>
 				<a href="<?= $self ?>"><?= $config['title'] ?></a>
