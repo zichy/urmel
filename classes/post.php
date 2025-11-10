@@ -103,9 +103,10 @@
 
 			foreach ($posts as $item) {
 				$id = $this->id($item);
+				$title = strtolower($this->get($id, 'title'));
 				$text = strtolower($this->get($id, 'text'));
 
-				if (str_contains($text, $query)) {
+				if (str_contains($title, $query) || str_contains($text, $query)) {
 					$results[] = $item;
 				}
 			}
