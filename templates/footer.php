@@ -11,7 +11,7 @@
 </footer>
 
 <?php if ($account->loggedin()): ?>
-	<script src="assets/urmel.js"></script>
+	<script src="assets/script.js"></script>
 <?php endif ?>
 
 </body></html>
