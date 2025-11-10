@@ -1,6 +1,6 @@
 :root {
-	--font-sans: ui-sans-serif, sans-serif;
-	--font-mono: ui-monospace, monospace;
+	--sans: ui-sans-serif, sans-serif;
+	--mono: ui-monospace, monospace;
 
 	--width: 800px;
 	--spacer: 2rem;
@@ -11,7 +11,10 @@
 	--transparent: hsl(0 0% 100% / 0);
 	--draft: hsl(0 0% 100% / 0.5);
 	--text: hsl(0, 0%, 0%);
-	--accent: oklch(45.1% 0.2832 271.54);
+	--accent-hsl: 249 87% 50%;
+	--accent-dark: hsl(var(--accent-hsl) / 1);
+	--accent-light: hsl(var(--accent-hsl) / 0.2);
+	--feed: hsl(29, 100%, 37%);
 	--select: hsl(50, 100%, 80%);
 	--meta: hsl(0, 0%, 33%);
 }
@@ -32,11 +35,11 @@
 ::selection,
 mark {
 	background-color: var(--select);
-	color: var(--accent);
+	color: var(--accent-dark);
 }
 
 :focus-visible {
-	outline: 2px solid var(--accent);
+	outline: 2px solid var(--accent-dark);
 	outline-offset: 2px;
 }
 
@@ -47,7 +50,7 @@ html {
 body {
 	background-color: var(--bg);
 	color: var(--text);
-	font: clamp(1.4rem, 2vw, 1.6rem)/1.5 var(--font-sans);
+	font: clamp(1.4rem, 2vw, 1.6rem)/1.5 var(--sans);
 	display: grid;
 	align-content: start;
 	row-gap: var(--spacer);
@@ -63,7 +66,7 @@ main {
 }
 
 a {
-	color: var(--accent);
+	color: var(--accent-dark);
 	text-decoration-color: currentColor;
 	text-decoration-style: solid;
 	text-decoration-thickness: 0.1em;
@@ -75,7 +78,7 @@ a:hover {
 }
 
 h1 {
-	color: var(--accent);
+	color: var(--accent-dark);
 	font-size: 2em;
 	line-height: 1;
 	margin-block: 0;
@@ -91,9 +94,9 @@ h1 a:hover {
 }
 
 :is(h2, #title) {
-	color: var(--accent);
+	color: var(--accent-dark);
 	font-size: 1.5em;
-	font-family: var(--font-sans);
+	font-family: var(--sans);
 	font-weight: bold;
 	line-height: 1.2;
 }
@@ -103,11 +106,11 @@ h2 {
 }
 
 h2 a {
-	text-decoration-color: var(--bg);
+	text-decoration-color: var(--accent-light);
 }
 
 h2 a:hover {
-	color: var(--accent);
+	color: var(--accent-dark);
 	text-decoration-color: currentColor;
 }
 
@@ -130,7 +133,7 @@ hgroup h2 a::before {
 }
 
 hgroup .meta {
-	color: var(--accent);
+	color: var(--accent-dark);
 }
 
 hgroup .meta::before {
@@ -201,7 +204,7 @@ nav .row {
 
 .field {
 	background-color: transparent;
-	font-family: var(--font-mono);
+	font-family: var(--mono);
 	font-size: 1em;
 	display: block;
 	padding: 2rem var(--spacer);
@@ -214,10 +217,10 @@ nav .row {
 }
 
 :is(.input, .button) {
-	font-family: var(--font-sans);
+	font-family: var(--sans);
 	font-size: 0.8em;
-	line-height: 1.5;
-	padding: 0.325rem 1ch;
+	height: 2.5rem;
+	padding-inline: 1ch;
 	border: 0;
 	border-radius: 0.5rem;
 }
@@ -226,38 +229,41 @@ nav .row {
 	max-width: 15rem;
 }
 
+.input:not(:focus-visible) {
+	outline: 2px solid var(--box);
+}
+
 .block .input {
 	background-color: var(--bg);
 }
 
 .button {
-	background-color: var(--accent);
-	color: var(--box);
+	background-color: var(--accent-light);
+	color: var(--accent-dark);
 	font-weight: bold;
 	text-decoration: none;
-	display: inline-flex;
+	display: flex;
+	place-items: center;
 	column-gap: 1ch;
 	position: relative;
-	outline: 2px solid var(--box);
 	cursor: pointer;
 	user-select: none;
 }
 
 .button:hover {
-	background-color: var(--box);
-	color: var(--accent);
-	outline-color: var(--accent);
-}
-
-.button:focus-visible {
-	outline-color: var(--accent);
-	outline-offset: 2px;
+	background-color: var(--accent-dark);
+	color: var(--box);
 }
 
 .button::before {
 	content: '';
 	position: absolute;
 	inset: -2px;
+}
+
+[data-button="feed"] {
+	background-color: var(--feed);
+	color: var(--box);
 }
 
 .meta {

@@ -20,6 +20,6 @@
 			<button class="button" type="submit" name="logout"><?= L10n::$logout ?></button>
 		</form>
 		<?php endif ?>
-		<a class="button" href="<?= $self ?>?feed"><?= L10n::$feed ?></a>
+		<a class="button" data-button="feed" href="/?feed"><?= L10n::$feed ?></a>
 	</div>
 </nav>
