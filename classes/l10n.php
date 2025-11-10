@@ -1,6 +1,9 @@
 <?php class L10n
 {
 	static $search = 'Search';
+	static $searchText = 'Search for';
+	static $postSingular = 'post';
+	static $postPlural = 'posts';
 	static $username = 'Username';
 	static $password = 'Password';
 	static $login = 'Login';

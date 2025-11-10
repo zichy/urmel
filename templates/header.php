@@ -41,3 +41,7 @@
 </header>
 
 <main>
+
+<?php if (!empty($_GET['q'])): ?>
+	<p class="meta"><?= L10n::$searchText ?> <mark><?= $_GET['q'] ?></mark>: <?= count($posts).' '.ngettext(L10n::$postSingular, L10n::$postPlural, count($posts)) ?></p>
+<?php endif ?>

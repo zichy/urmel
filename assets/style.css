@@ -29,7 +29,8 @@
 	text-rendering: optimizeLegibility;
 }
 
-::selection {
+::selection,
+mark {
 	background-color: var(--select);
 	color: var(--accent);
 }
