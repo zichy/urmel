@@ -1,14 +1,14 @@
 <form class="box" action="/" method="post" data-box="panel">
 	<div class="block">
-		<input class="field" type="text" name="title" id="title" spellcheck="false" aria-label="<?= L10n::$titleLabel ?>" placeholder="<?= L10n::$titlePlaceholder ?>" value="<?= (isset($_GET['edit']) ? $post->get($id, 'title') : '') ?>">
+		<input class="field" type="text" name="title" id="title" maxlength="300" spellcheck="false" aria-label="<?= L10n::$titleLabel ?>" placeholder="<?= L10n::$titlePlaceholder ?>" value="<?= (isset($_GET['edit']) ? $post->get($id, 'title') : '') ?>">
 	</div>
 
 	<div class="block">
-		<input class="field" type="url" name="via" id="via" aria-label="<?= L10n::$viaLabel ?>" placeholder="<?= L10n::$viaPlaceholder ?>" value="<?= (isset($_GET['edit']) ? $post->get($id, 'via') : '') ?>">
+		<input class="field" type="url" name="via" id="via" maxlength="500" aria-label="<?= L10n::$viaLabel ?>" placeholder="<?= L10n::$viaPlaceholder ?>" value="<?= (isset($_GET['edit']) ? $post->get($id, 'via') : '') ?>">
 	</div>
 
 	<div class="block">
-		<textarea class="field" name="text" id="text" spellcheck="false" rows="8" aria-label="<?= L10n::$textLabel ?>" placeholder="<?= L10n::$textPlaceholder ?>"><?= (isset($_GET['edit']) ? $post->get($id, 'text') : '') ?></textarea>
+		<textarea class="field" name="text" id="text" maxlength="10000" spellcheck="false" rows="8" aria-label="<?= L10n::$textLabel ?>" placeholder="<?= L10n::$textPlaceholder ?>"><?= (isset($_GET['edit']) ? $post->get($id, 'text') : '') ?></textarea>
 	</div>
 
 	<div class="block" data-block="footer">
