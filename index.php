@@ -77,8 +77,8 @@ if ($account->loggedin()) {
 		}
 
 		$content->draft = isset($_POST['save-draft']) ? true : false;
-		$content->title = $_POST['title'];
-		$content->via = $_POST['via'];
+		$content->title = strip_tags($_POST['title']);
+		$content->via = strip_tags($_POST['via']);
 		$content->text = htmlspecialchars($_POST['text']);
 		$post->set($id, $content);
 		$sys->goto();
