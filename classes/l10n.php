@@ -13,7 +13,6 @@
 	static $titlePlaceholder = 'Title';
 	static $viaLabel = 'URL';
 	static $viaPlaceholder = 'https://example.com';
-	static $viaExternal = 'External';
 	static $textLabel = 'Comment';
 	static $textPlaceholder = 'What are your thoughts?';
 	static $textFormatting = 'Text formatting';
