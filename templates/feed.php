@@ -5,8 +5,8 @@
 <subtitle><?= $config['description'] ?></subtitle>
 <?php endif ?>
 <link href="<?= $home ?>" type="text/html" rel="alternate"/>
-<link href="<?= $home.$self ?>?feed" type="application/atom+xml" rel="self"/>
-<id><?= $home.$self ?>?feed</id>
+<link href="<?= $home ?>/?feed" type="application/atom+xml" rel="self"/>
+<id><?= $home ?>/?feed</id>
 <author>
 	<name><?= $config['title'] ?></name>
 </author>
@@ -20,7 +20,7 @@
 	$id = $post->id($postItem);
 	$date = new DateTime();
 	$date->setTimestamp($id);
-	$url = "{$home}{$self}?p={$id}";
+	$url = "{$home}/?p={$id}";
 	$text = $post->get($id, 'text');
 	$text = $text ? $post->parse($text) : '';
 	$titleText = strip_tags($text);

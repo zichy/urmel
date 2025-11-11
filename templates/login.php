@@ -1,4 +1,4 @@
-<form class="box" action="<?= $self ?>" method="post">
+<form class="box" action="/" method="post">
 	<div class="block">
 		<label for="username"><?= L10n::$username ?></label>
 		<input class="input" type="text" id="username" name="username" autocomplete="username" required>

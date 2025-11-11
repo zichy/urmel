@@ -11,10 +11,10 @@ if (file_exists($configFile)) {
 	die(L10n::$errorConfigMissing);
 }
 
-// URIs
+// Routing
 $home = "https://{$_SERVER['HTTP_HOST']}";
+$script = $_SERVER['SCRIPT_NAME'];
 $self = $_SERVER['PHP_SELF'];
-$self = ($self == '/index.php') ? '/' : $self;
 
 // Import classes
 require_once('classes/sys.php');
@@ -188,7 +188,7 @@ if (isset($_GET['login'])) {
 			$id = $post->id($item);
 			$date = new DateTime();
 			$date->setTimestamp($id);
-			$url = "{$home}{$self}?p={$id}";
+			$url = "{$home}/?p={$id}";
 			$title = $post->get($id, 'title');
 			$via = $post->get($id, 'via');
 			$source = $via ? parse_url($via)['host'] : '';

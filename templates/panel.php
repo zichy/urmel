@@ -1,4 +1,4 @@
-<form class="box" action="<?= $self ?>" method="post" data-box="panel">
+<form class="box" action="/" method="post" data-box="panel">
 	<div class="block">
 		<input class="field" type="text" name="title" id="title" spellcheck="false" aria-label="<?= L10n::$titleLabel ?>" placeholder="<?= L10n::$titlePlaceholder ?>" value="<?= (isset($_GET['edit']) ? $post->get($id, 'title') : '') ?>">
 	</div>

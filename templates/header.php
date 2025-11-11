@@ -11,7 +11,7 @@
 	<meta name="description" content="<?= $config['description'] ?>">
 	<meta property="og:description" content="<?= $config['description'] ?>">
 <?php endif ?>
-<meta property="og:url" content="<?= isset($_GET['p']) ? "{$home}{$self}?p={$_GET['p']}" : $home.$self ?>">
+<meta property="og:url" content="<?= isset($_GET['p']) ? "{$home}/?p={$_GET['p']}" : $home.'/' ?>">
 <link rel="alternate" type="text/xml" href="/?feed" title="<?= $config['title'] ?> <?= L10n::$feed ?>">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%3E%3Ctext%20y=%221em%22%20font-size=%2285%22%3E<?= $config['emoji'] ?>%3C/text%3E%3C/svg%3E">
 <link href="assets/style.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 	<div class="name">
 		<h1 itemprop="name">
 			<?php if (!empty($_GET)): ?>
-				<a href="<?= $self ?>"><?= $config['title'] ?></a>
+				<a href="/"><?= $config['title'] ?></a>
 			<?php else: ?>
 				<?= $config['title'] ?>
 			<?php endif ?>
@@ -35,7 +35,7 @@
 		<?php endif ?>
 	</div>
 
-	<form class="search" action="<?= $self ?>" method="get" role="search">
+	<form class="search" action="/" method="get" role="search">
 		<input class="input" type="search" name="q" aria-label="<?= L10n::$search ?>" placeholder="<?= L10n::$search ?>" value="<?= isset($_GET['q']) ? $_GET['q'] : '' ?>" required>
 	</form>
 </header>

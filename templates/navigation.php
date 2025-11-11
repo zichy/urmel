@@ -16,7 +16,7 @@
 
 	<div class="row" data-row="end">
 		<?php if ($account->loggedin()): ?>
-		<form action="<?= $self ?>" method="post">
+		<form action="/" method="post">
 			<button class="button" type="submit" name="logout"><?= L10n::$logout ?></button>
 		</form>
 		<?php endif ?>

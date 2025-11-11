@@ -1,8 +1,7 @@
 <?php class Sys
 {
 	public function goto($path = false) {
-		global $self;
-		header('Location: '.$self.($path ? $path : ''));
+		header('Location: '.'/'.($path ? $path : ''));
 	}
 
 	public function createDirectory($dir)
