@@ -202,6 +202,11 @@ nav .row {
 	flex-grow: 1;
 }
 
+.name .meta {
+	color: var(--accent-dark);
+	font-weight: bold;
+}
+
 .field {
 	background-color: transparent;
 	font-family: var(--mono);
