@@ -105,8 +105,11 @@
 				$id = $this->id($item);
 				$title = strtolower($this->get($id, 'title'));
 				$text = strtolower($this->get($id, 'text'));
+				$via = strtolower($this->get($id, 'via'));
 
-				if (str_contains($title, $query) || str_contains($text, $query)) {
+				if (str_contains($title, $query) ||
+					str_contains($text, $query) ||
+					str_contains($via, $query)) {
 					$results[] = $item;
 				}
 			}
