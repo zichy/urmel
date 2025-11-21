@@ -146,9 +146,21 @@ hgroup .meta::after {
 
 blockquote {
 	font-style: italic;
-	padding-inline-start: 2ch;
-	margin-inline: 0;
 	border-left: 2px solid var(--bg);
+}
+
+@media (max-width: 768px) {
+	blockquote {
+		padding-inline-start: calc(1rem - 2px);
+		margin-inline-start: -1rem;
+	}
+}
+
+@media (min-width: 769px) {
+	blockquote {
+		padding-inline-start: 2rem;
+		margin-inline: 0;
+	}
 }
 
 blockquote p {
