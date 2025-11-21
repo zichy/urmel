@@ -169,7 +169,6 @@ blockquote p {
 
 code {
 	background-color: var(--bg);
-	font-style: italic;
 	padding-inline: 0.5ch;
 	border-radius: 0.5rem;
 }
